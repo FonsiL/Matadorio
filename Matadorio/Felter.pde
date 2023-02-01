@@ -48,7 +48,7 @@ class Lykken extends Felt {
   }
   String infoString(String indryk) {
     StringBuilder str = new StringBuilder();
-    str.append(indryk+"Prøv Lykken- " + "\n");
+    str.append(indryk+"Proev Lykken- " + "\n");
     str.append(indryk+"Kort- " + Kort + "\n" + "\n");
     return str.toString();
   }
@@ -70,8 +70,8 @@ class Start extends Felt {
   }
 }
 
-class Fængsel extends Felt {
-  String FængselsNavn;
+class Faengsel extends Felt {
+  String FaengselsNavn;
   // float
 }
 
@@ -101,13 +101,13 @@ class Sodavand extends Felt {
 }
 
 
-class Færge extends Felt {
-  String FærgeNavn;
+class Faerge extends Felt {
+  String FaergeNavn;
   boolean Ejer;
   double Pris;
   double Grundleje;
-  Færge(String FærgeNavn, boolean Ejer, double Pris, double Grundleje) {
-    this.FærgeNavn= FærgeNavn;
+  Faerge(String FaergeNavn, boolean Ejer, double Pris, double Grundleje) {
+    this.FaergeNavn= FaergeNavn;
     this.Ejer = Ejer;
     this.Pris = Pris;
     this.Grundleje = Grundleje;
@@ -117,8 +117,8 @@ class Færge extends Felt {
   }
   String infoString(String indryk) {
     StringBuilder str = new StringBuilder();
-    str.append(indryk+"Færge- " + "\n");
-    str.append(indryk+"FærgeNavn- " + FærgeNavn + "\n");
+    str.append(indryk+"Faerge- " + "\n");
+    str.append(indryk+"FaergeNavn- " + FaergeNavn + "\n");
     str.append(indryk+"Ejer- " + Ejer + "\n");
     str.append(indryk+"Pris- " + Pris + "\n");
     str.append(indryk+"Grundleje- " + Grundleje + "\n" + "\n");

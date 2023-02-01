@@ -3,13 +3,13 @@
 
 class Terning {
   String TerningeNavn;
-  int TØjne;
-  Terning(String TerningeNavn, int TØjne) {
+  int Toejne;
+  Terning(String TerningeNavn, int Toejne) {
     this.TerningeNavn = TerningeNavn;
-    this.TØjne = TØjne;
+    this.Toejne = Toejne;
   }
   void Kast() {
-    int(random(TØjne)+1);
+    int(random(Toejne)+1);
   }
   String toString() {
     return infoString("");
@@ -18,8 +18,8 @@ class Terning {
     StringBuilder str = new StringBuilder();
     str.append(indryk+"Terning- " + "\n");
     str.append(indryk+"TerningeNavn- " + TerningeNavn + "\n");
-    str.append(indryk+"Terninge Øjne- " + TØjne + "\n" + "\n");
-    // str.append(indryk+"Terninge Øjne- " +  + "\n" + "\n");
+    str.append(indryk+"Terninge oejne- " + Toejne + "\n" + "\n");
+    // str.append(indryk+"Terninge oejne- " +  + "\n" + "\n");
 
     return str.toString();
   }
