@@ -1,10 +1,10 @@
 //Matador spil
-
+/*
 class Matador {
-  ArrayList[] Spillere;
-  int spillersTur;
-}
-
+ ArrayList[] Spillere;
+ int spillersTur;
+ }
+ */
 int SlutKastVaerdi;
 boolean Buying = false;
 int SpillersTur = 1;
@@ -13,10 +13,12 @@ int P2 = 0;
 
 
 ArrayList<Felt> Felter = new ArrayList<Felt>();
-ArrayList<Spiller> Spillere = new ArrayList<Spiller>();
-
+//ArrayList<Spiller> Spillere = new ArrayList<Spiller>();
+  Spiller[] Spillere =new Spiller[2];
 
 void setup() {
+
+
   Felter.add(new Start(4000)); //1
   Felter.add(new Gade("1", false, 1000, 75));
   Felter.add(new Lykken(int(random(1, 4))));
@@ -59,18 +61,14 @@ void setup() {
   Felter.add(new Gade("26", false, 1250, 100)); //40
 
   // println(Felter);
-
-
-
-
-
-  // println(Spillere);
 }
 
 void draw() {
-  if (keyPressed
-  Spillere.add(new Spiller("Frederik", 30000, P1));
-  Spillere.add(new Spiller("Kristian", 30000, P2));
+  Spillere[0] = new Spiller("Niels", 30000, P1);
+  Spillere[1] = new Spiller("Kristian", 30000, P2);
+          println(Spillere[0]);
+        println(Spillere.length);
+
 }
 
 
@@ -89,11 +87,10 @@ void keyPressed() {
         if (P1 >39) {
           P1 -= 39;
         }
-                println(Spillere);
 
         println("P1=" + P1);
         println(SlutKastVaerdi);
- 
+
         //println(elter[P1]);
       } else {
         if (key == ' ') {
@@ -109,4 +106,4 @@ void keyPressed() {
       }
     }
   }
-}
+} 
