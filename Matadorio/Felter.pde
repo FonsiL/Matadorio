@@ -1,13 +1,11 @@
-class Felt {
+public class Felt {
   String FeltNavn;
 }
 
 class Helle extends Felt {
   String HelleNavn;
-  double Gevinst;
-  Helle(String HelleNavn, double Gevinst) {
+  Helle(String HelleNavn) {
     this.HelleNavn = HelleNavn;
-    this.Gevinst = Gevinst;
   }
     String toString() {
     return infoString("");
@@ -15,8 +13,7 @@ class Helle extends Felt {
   String infoString(String indryk) {
     StringBuilder str = new StringBuilder();
     str.append(indryk+"HelleFelt " + "\n");
-    str.append(indryk+"HelleNavn- " + HelleNavn + "\n");
-    str.append(indryk+"Gevinst- " + Gevinst + "\n" + "\n");
+    str.append(indryk+"HelleNavn- " + HelleNavn + "\n" + "\n");
     
     return str.toString();
   }
@@ -77,10 +74,10 @@ class Faengsel extends Felt {
 
 class Sodavand extends Felt {
   String SodavandNavn;
-  boolean Ejer;
+  int Ejer;
   double Pris;
   double Grundleje;
-  Sodavand(String SodavandNavn, boolean Ejer, double Pris, double Grundleje) {
+  Sodavand(String SodavandNavn, int Ejer, double Pris, double Grundleje) {
     this.SodavandNavn= SodavandNavn;
     this.Ejer = Ejer;
     this.Pris = Pris;
@@ -103,10 +100,10 @@ class Sodavand extends Felt {
 
 class Faerge extends Felt {
   String FaergeNavn;
-  boolean Ejer;
+  int Ejer;
   double Pris;
   double Grundleje;
-  Faerge(String FaergeNavn, boolean Ejer, double Pris, double Grundleje) {
+  Faerge(String FaergeNavn, int Ejer, double Pris, double Grundleje) {
     this.FaergeNavn= FaergeNavn;
     this.Ejer = Ejer;
     this.Pris = Pris;
@@ -129,10 +126,10 @@ class Faerge extends Felt {
 
 class Gade extends Felt {
   String GadeNavn;
-  boolean Ejer;
+  int Ejer;
   double Pris;
   double Grundleje;
-  Gade(String GadeNavn, boolean Ejer, double Pris, double Grundleje) {
+  Gade(String GadeNavn, int Ejer, double Pris, double Grundleje) {
     this.GadeNavn= GadeNavn;
     this.Ejer = Ejer;
     this.Pris = Pris;

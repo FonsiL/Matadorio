@@ -1,4 +1,4 @@
-int AntalSpillere;
+  int AntalSpillere;
 
 
 class Spiller {
