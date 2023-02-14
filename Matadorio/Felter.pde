@@ -2,24 +2,26 @@ public class Felt {
   String FeltNavn;
 }
 
-class Helle extends Felt {
+public class Helle extends Felt {
   String HelleNavn;
   Helle(String HelleNavn) {
     this.HelleNavn = HelleNavn;
   }
-    String toString() {
+  String toString() {
     return infoString("");
   }
   String infoString(String indryk) {
     StringBuilder str = new StringBuilder();
     str.append(indryk+"HelleFelt " + "\n");
     str.append(indryk+"HelleNavn- " + HelleNavn + "\n" + "\n");
-    
+
     return str.toString();
+  }
+  void landet() {
   }
 }
 
-class Skat extends Felt {
+public class Skat extends Felt {
   double Straf;
   Skat(double Straf) {
     this.Straf = Straf;
@@ -33,9 +35,16 @@ class Skat extends Felt {
     str.append(indryk+"Straf- " + Straf + "\n" + "\n");
     return str.toString();
   }
+  void landet() {
+    if (SpillersTur == 1) {
+      K1 -= 4000;
+    } else {
+      K2 -= 4000;
+    }
+  }
 }
 
-class Lykken extends Felt {
+public class Lykken extends Felt {
   int Kort;
   Lykken(int Kort) {
     this.Kort = Kort;
@@ -49,9 +58,34 @@ class Lykken extends Felt {
     str.append(indryk+"Kort- " + Kort + "\n" + "\n");
     return str.toString();
   }
+  void landet() {
+    println("Lykken");
+    if (Kort==1) {
+      if (SpillersTur == 1) {
+        K1+=500;
+      } else {
+        K2+= 500;
+      }
+      println("Tillykke du har vundet '500kr' i lotto");
+    } else if (Kort == 2) {
+      if (SpillersTur == 1) {
+        K1+=1000;
+      } else {
+        K2+= 1000;
+      }
+      println("Tillykke du har vundet '1000kr' i lotto");
+    } else if (Kort == 3) {
+      if (SpillersTur == 1) {
+        K1+=2000;
+      } else {
+        K2+= 2000;
+      }
+      println("Tillykke du har vundet '2000kr' i lotto");
+    }
+  }
 }
 
-class Start extends Felt {
+public class Start extends Felt {
   double Gevinst;
   Start(double Gevinst) {
     this.Gevinst = Gevinst;
@@ -65,14 +99,19 @@ class Start extends Felt {
     str.append(indryk+"Gevinst- " + Gevinst + "\n" + "\n");
     return str.toString();
   }
+  void landet () {
+    println("Start");
+  }
 }
 
-class Faengsel extends Felt {
+public class Faengsel extends Felt {
   String FaengselsNavn;
   // float
+  void landet(){
+  }
 }
 
-class Sodavand extends Felt {
+public class Sodavand extends Felt {
   String SodavandNavn;
   int Ejer;
   double Pris;
@@ -95,10 +134,57 @@ class Sodavand extends Felt {
     str.append(indryk+"Grundleje- " + Grundleje + "\n" + "\n");
     return str.toString();
   }
+  void landet() {
+    println(SodavandNavn);
+    if (Ejer == 0) {
+      if (SpillersTur == 1) {
+        if (K1 >= Pris) {
+          println("Denne " + SodavandNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+          println("Hvis " + SodavandNavn + " ikke ønskes at købes trykkes på 'N'");
+          if (key == 'y' || key == 'Y') {
+            K1 -= Pris;
+            Ejer = 1;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne Sodavandsfabrik");
+        }
+      } else {
+        if (K2 >= Pris) {
+          println("Denne " + SodavandNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+          println("Hvis " + SodavandNavn + " ikke ønskes at købes trykkes på 'N'");
+          if (key == 'y' || key == 'Y') {
+            K2 -= Pris;
+            Ejer = 2;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne Sodavandsfabrik");
+        }
+      }
+    } else if (Ejer == 1 ) {
+      if (SpillersTur == 1) {
+        println("Du ejer denne Sodavandsfabrik");
+      } else {
+       // println(SpillerNavn[1] + "skal betale" + Grundleje);
+        K2 -= Grundleje;
+        K1 += Grundleje;
+      }
+    } else if (Ejer == 2 ) {
+      if (SpillersTur == 1) {
+       // println(SpillerNavn[0] + "skal betale" + Grundleje);
+        K1 -= Grundleje;
+        K2 += Grundleje;
+      } else {
+        println("Du ejer denne Sodavandsfabrik");
+      }
+    }
+  }
 }
 
 
-class Faerge extends Felt {
+
+public class Faerge extends Felt {
   String FaergeNavn;
   int Ejer;
   double Pris;
@@ -121,10 +207,56 @@ class Faerge extends Felt {
     str.append(indryk+"Grundleje- " + Grundleje + "\n" + "\n");
     return str.toString();
   }
+  void landet() {
+    println(FærgeNavn);
+    if (Ejer == 0) {
+      if (SpillersTur == 1) {
+        if (K1 >= Pris) {
+          println("Denne " + FærgeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+          println("Hvis " + FærgeNavn + " ikke ønskes at købes trykkes på 'N'");
+          if (key == 'y' || key == 'Y') {
+            K1 -= Pris;
+            Ejer = 1;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne færge");
+        }
+      } else {
+        if (K2 >= Pris) {
+          println("Denne " + FærgeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+          println("Hvis " + FærgeNavn + " ikke ønskes at købes trykkes på 'N'");
+          if (key == 'y' || key == 'Y') {
+            K2 -= Pris;
+            Ejer = 2;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne færge");
+        }
+      }
+    } else if (Ejer == 1 ) {
+      if (SpillersTur == 1) {
+        println("Du ejer denne færge");
+      } else {
+        println("skal betale" + Grundleje);
+        K2 -= Grundleje;
+        K1 += Grundleje;
+      }
+    } else if (Ejer == 2 ) {
+      if (SpillersTur == 1) {
+        println("skal betale" + Grundleje);
+        K1 -= Grundleje;
+        K2 += Grundleje;
+      } else {
+        println("Du ejer denne færge");
+      }
+    }
+  }
 }
 
 
-class Gade extends Felt {
+public class Gade extends Felt {
   String GadeNavn;
   int Ejer;
   double Pris;
@@ -146,5 +278,51 @@ class Gade extends Felt {
     str.append(indryk+"Pris- " + Pris + "\n");
     str.append(indryk+"Grundleje- " + Grundleje + "\n" + "\n");
     return str.toString();
+  }
+  void landet() {
+    println(GadeNavn);
+    if (Ejer == 0) {
+      if (SpillersTur == 1) {
+        if (K1 >= Pris) {
+          println("Denne " + GadeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+          println("Hvis " + GadeNavn + " ikke ønskes at købes trykkes på 'N'");
+          if (key == 'y' || key == 'Y') {
+            K1 -= Pris;
+            Ejer = 1;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne gade");
+        }
+      } else {
+        if (K2 >= Pris) {
+          println("Denne " + GadeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+          println("Hvis " + GadeNavn + " ikke ønskes at købes trykkes på 'N'");
+          if (key == 'y' || key == 'Y') {
+            K2 -= Pris;
+            Ejer = 2;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne gade");
+        }
+      }
+    } else if (Ejer == 1 ) {
+      if (SpillersTur == 1) {
+        println("Du ejer denne gade");
+      } else {
+      //  println(SpillerNavn[1] + "skal betale" + Grundleje);
+        K2 -= Grundleje;
+        K1 += Grundleje;
+      }
+    } else if (Ejer == 2 ) {
+      if (SpillersTur == 1) {
+        println("skal betale" + Grundleje);
+        K1 -= Grundleje;
+        K2 += Grundleje;
+      } else {
+        println("Du ejer denne gade");
+      }
+    }
   }
 }

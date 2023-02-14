@@ -16,7 +16,7 @@ public class Board {
     Felter.add(new Gade("6", 0, 1250, 100)); //10
     Felter.add(new Helle("Faengsel"));
     Felter.add(new Gade("7", 0, 1250, 100));
-    Felter.add(new Sodavand("Squash", 0, 3000, 100));
+    Felter.add(new Sodavand("Squash", 0, 3000, 100*SlutKastVaerdi));
     Felter.add(new Gade("8", 0, 1250, 100));
     Felter.add(new Gade("9", 0, 1250, 100)); //15
     Felter.add(new Faerge("10", 0, 4000, 500));
@@ -32,9 +32,9 @@ public class Board {
     Felter.add(new Faerge("17", 0, 4000, 500));
     Felter.add(new Gade("18", 0, 1250, 100));
     Felter.add(new Gade("19", 0, 1250, 100));
-    Felter.add(new Sodavand("CocaCola", 0, 3000, 100));
+    Felter.add(new Sodavand("CocaCola", 0, 3000, 100*SlutKastVaerdi));
     Felter.add(new Gade("20", 0, 1250, 100)); //30
-    
+    Felter.add(new Fængsel("jo"));
     Felter.add(new Gade("21", 0, 1250, 100));
     Felter.add(new Gade("22", 0, 1250, 100));
     Felter.add(new Lykken(int(random(1, 4))));
