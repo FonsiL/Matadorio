@@ -25,19 +25,22 @@ public void draw() {
 
 void keyPressed() {
   if (kørSpillet==true) {
+    
+    if (key == 'y' || key == 'Y') {
+      spil.test();
+    }
+    
     if (key == ' ') {
       spil.main();
 
       println(Spillere[0].SpillerNavn + Spillere[0].KontoBalance);
       println(Spillere[1].SpillerNavn + Spillere[1].KontoBalance);
       println(Spillere[0].SpillerNavn + " feltnr " + Spillere[0].FeltNr);
-      println(Spillere[1].SpillerNavn + " feltnr " + Spillere[1].FeltNr + '\n' + '\n');
+      println(Spillere[1].SpillerNavn + " feltnr " + Spillere[1].FeltNr + '\n');
+
+
 
       slå =0;
-    }
-
-    if (key == 'y' || key == 'Y') {
-      spil.test();
     }
   }
 }

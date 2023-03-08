@@ -68,23 +68,23 @@ public class Lykken extends Felt {
     println("Lykken");
     if (Kort==1) {
       if (SpillersTur == 1) {
-        Spillere[0].KontoBalance+=500;
+        Spillere[0].KontoBalance+=250;
       } else {
-        Spillere[1].KontoBalance+= 500;
+        Spillere[1].KontoBalance+= 250;
       }
       println("Tillykke du har vundet '500kr' i lotto");
     } else if (Kort == 2) {
       if (SpillersTur == 1) {
-        Spillere[0].KontoBalance+=1000;
+        Spillere[0].KontoBalance+=500;
       } else {
-        Spillere[1].KontoBalance+= 1000;
+        Spillere[1].KontoBalance+= 500;
       }
       println("Tillykke du har vundet '1000kr' i lotto");
     } else if (Kort == 3) {
       if (SpillersTur == 1) {
-        Spillere[0].KontoBalance+=2000;
+        Spillere[0].KontoBalance+= 1000;
       } else {
-        Spillere[1].KontoBalance+= 2000;
+        Spillere[1].KontoBalance+= 1000;
       }
       println("Tillykke du har vundet '2000kr' i lotto");
     }
@@ -151,13 +151,13 @@ public class Sodavand extends Felt {
       if (SpillersTur == 1) {
         println("Du ejer denne Sodavandsfabrik");
       } else {
-        // println(SpillerNavn[1] + "skal betale" + Grundleje);
+        println(Spillere[1].SpillerNavn + "skal betale" + Grundleje);
         Spillere[1].KontoBalance -= Grundleje;
         Spillere[0].KontoBalance += Grundleje;
       }
     } else if (Ejer == 2 ) {
       if (SpillersTur == 1) {
-        // println(SpillerNavn[0] + "skal betale" + Grundleje);
+        println(Spillere[0].SpillerNavn + "skal betale" + Grundleje);
         Spillere[0].KontoBalance -= Grundleje;
         Spillere[1].KontoBalance += Grundleje;
       } else {
@@ -165,8 +165,9 @@ public class Sodavand extends Felt {
       }
     }
   }
+
+
   void køb(Spiller spillere) {
-    println(SodavandNavn);
     if (Ejer == 0) {
       if (SpillersTur == 1) {
         if (Spillere[0].KontoBalance >= Pris) {
@@ -174,20 +175,17 @@ public class Sodavand extends Felt {
           if (key == 'y' || key == 'Y') {
             Spillere[0].KontoBalance -= Pris;
             Ejer = 1;
-
-            println("hej");
+            println("Du har købt "+ SodavandNavn + '\n');
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne Sodavandsfabrik");
         }
       } else {
         if (Spillere[1].KontoBalance >= Pris) {
-
-
           if (key == 'y' || key == 'Y') {
             Spillere[1].KontoBalance -= Pris;
             Ejer = 2;
-            println("hej");
+            println("Du har købt "+ SodavandNavn + '\n');
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne Sodavandsfabrik");
@@ -230,13 +228,13 @@ public class Faerge extends Felt {
       if (SpillersTur == 1) {
         println("Du ejer denne færge");
       } else {
-        println("skal betale" + Grundleje);
+        println(Spillere[1].SpillerNavn + "skal betale" + Grundleje);
         Spillere[1].KontoBalance -= Grundleje;
         Spillere[0].KontoBalance += Grundleje;
       }
     } else if (Ejer == 2 ) {
       if (SpillersTur == 1) {
-        println("skal betale" + Grundleje);
+        println(Spillere[0].SpillerNavn + "skal betale" + Grundleje);
         Spillere[0].KontoBalance -= Grundleje;
         Spillere[1].KontoBalance += Grundleje;
       } else {
@@ -254,6 +252,7 @@ public class Faerge extends Felt {
           if (key == 'y' || key == 'Y') {
             Spillere[0].KontoBalance -= Pris;
             Ejer = 1;
+            println("Du har købt "+ FaergeNavn + '\n');
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne færge");
@@ -265,6 +264,7 @@ public class Faerge extends Felt {
           if (key == 'y' || key == 'Y') {
             Spillere[1].KontoBalance -= Pris;
             Ejer = 2;
+            println("Du har købt "+ FaergeNavn + '\n');
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne færge");
@@ -306,13 +306,15 @@ public class Gade extends Felt {
       if (SpillersTur == 1) {
         println("Du ejer denne gade");
       } else {
-        //  println(SpillerNavn[1] + "skal betale" + Grundleje);
+        println(GadeNavn + " er ejet af " + Spillere[0].SpillerNavn);
+        println(Spillere[1].SpillerNavn + "skal betale" + Grundleje);
         Spillere[1].KontoBalance -= Grundleje;
         Spillere[0].KontoBalance += Grundleje;
       }
     } else if (Ejer == 2 ) {
       if (SpillersTur == 1) {
-        println("skal betale" + Grundleje);
+        println(GadeNavn + " er ejet af " + Spillere[1].SpillerNavn);
+        println(Spillere[0].SpillerNavn + "skal betale" + Grundleje);
         Spillere[0].KontoBalance -= Grundleje;
         Spillere[1].KontoBalance += Grundleje;
       } else {
@@ -323,14 +325,12 @@ public class Gade extends Felt {
 
   void køb(Spiller spillere) {
     if (Ejer == 0) {
-      if (SpillersTur == 1) {
+      if (SpillersTur == 2) {
         if (Spillere[0].KontoBalance >= Pris) {
-
-
           if (key == 121 || key == 'Y') {
             Spillere[0].KontoBalance -= Pris;
             Ejer = 1;
-            println("hej");
+            println("Du har købt "+ GadeNavn + '\n');
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne gade");
@@ -340,7 +340,7 @@ public class Gade extends Felt {
           if (key == 'y' || key == 'Y') {
             Spillere[1].KontoBalance -= Pris;
             Ejer = 2;
-            println("Du har købt "+ GadeNavn);
+            println("Du har købt "+ GadeNavn + '\n');
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne gade");

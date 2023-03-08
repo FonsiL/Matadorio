@@ -49,7 +49,7 @@ public class benytspil {
     }
   }
   public void test() {
-    if (SpillersTur==1) {
+    if (SpillersTur==2) {
       Felt feltkøb = Matadorio.Felter.get(Spillere[0].FeltNr);
       feltkøb.køb(Spillere[0]);
     } else {
