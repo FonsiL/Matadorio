@@ -2,7 +2,8 @@ public class Felt {
   String FeltNavn;
   void landet(Spiller spillere) {
   }
-  
+  void køb(Spiller spillere) {
+  }
 }
 
 public class Helle extends Felt {
@@ -21,6 +22,7 @@ public class Helle extends Felt {
     return str.toString();
   }
   void landet(Spiller spillere) {
+    println("Helle: " + HelleNavn);
   }
 }
 
@@ -39,6 +41,7 @@ public class Skat extends Felt {
     return str.toString();
   }
   void landet(Spiller spillere) {
+    println("Skat" + '\n' + "Du skal betale " + Straf);
     if (SpillersTur == 1) {
       Spillere[0].KontoBalance -= 4000;
     } else {
@@ -103,20 +106,20 @@ public class Start extends Felt {
     return str.toString();
   }
   void landet (Spiller spillere) {
-    println("Start");  
+    println("Start");
   }
 }
 /*
 public class Faengsel extends Felt {
-  String FaengselsNavn;
-  Start(String FaengselsNavn){
-    this.FaengselsNavn=FaengselsNavn;
-  }
-  // float
-  void landet(){
-  }
-}
-*/
+ String FaengselsNavn;
+ Start(String FaengselsNavn){
+ this.FaengselsNavn=FaengselsNavn;
+ }
+ // float
+ void landet(){
+ }
+ }
+ */
 public class Sodavand extends Felt {
   String SodavandNavn;
   int Ejer;
@@ -142,18 +145,38 @@ public class Sodavand extends Felt {
   }
   void landet(Spiller spillere) {
     println(SodavandNavn);
+    println("Denne " + SodavandNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+    println("Hvis " + SodavandNavn + " ikke ønskes at købes trykkes på 'N'");
+    if (Ejer == 1 ) {
+      if (SpillersTur == 1) {
+        println("Du ejer denne Sodavandsfabrik");
+      } else {
+        // println(SpillerNavn[1] + "skal betale" + Grundleje);
+        Spillere[1].KontoBalance -= Grundleje;
+        Spillere[0].KontoBalance += Grundleje;
+      }
+    } else if (Ejer == 2 ) {
+      if (SpillersTur == 1) {
+        // println(SpillerNavn[0] + "skal betale" + Grundleje);
+        Spillere[0].KontoBalance -= Grundleje;
+        Spillere[1].KontoBalance += Grundleje;
+      } else {
+        println("Du ejer denne Sodavandsfabrik");
+      }
+    }
+  }
+  void køb(Spiller spillere) {
+    println(SodavandNavn);
     if (Ejer == 0) {
       if (SpillersTur == 1) {
         if (Spillere[0].KontoBalance >= Pris) {
-          println("Denne " + SodavandNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
-          println("Hvis " + SodavandNavn + " ikke ønskes at købes trykkes på 'N'");
+
           if (key == 'y' || key == 'Y') {
             Spillere[0].KontoBalance -= Pris;
             Ejer = 1;
 
             println("hej");
           } else if (key == 'n' || key == 'N') {
-
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne Sodavandsfabrik");
@@ -161,35 +184,16 @@ public class Sodavand extends Felt {
       } else {
         if (Spillere[1].KontoBalance >= Pris) {
 
-          println("Denne " + SodavandNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
-          println("Hvis " + SodavandNavn + " ikke ønskes at købes trykkes på 'N'");
+
           if (key == 'y' || key == 'Y') {
             Spillere[1].KontoBalance -= Pris;
             Ejer = 2;
-                        println("hej");
-
+            println("hej");
           } else if (key == 'n' || key == 'N') {
-
           }
         } else {
           println("Du har ikke tilstrækkelig mængde penge til denne Sodavandsfabrik");
         }
-      }
-    } else if (Ejer == 1 ) {
-      if (SpillersTur == 1) {
-        println("Du ejer denne Sodavandsfabrik");
-      } else {
-       // println(SpillerNavn[1] + "skal betale" + Grundleje);
-        Spillere[1].KontoBalance -= Grundleje;
-        Spillere[0].KontoBalance += Grundleje;
-      }
-    } else if (Ejer == 2 ) {
-      if (SpillersTur == 1) {
-       // println(SpillerNavn[0] + "skal betale" + Grundleje);
-        Spillere[0].KontoBalance -= Grundleje;
-        Spillere[1].KontoBalance += Grundleje;
-      } else {
-        println("Du ejer denne Sodavandsfabrik");
       }
     }
   }
@@ -221,42 +225,10 @@ public class Faerge extends Felt {
     return str.toString();
   }
   void landet(Spiller spillere) {
-    println(FaergeNavn);
-    if (Ejer == 0) {
-      if (SpillersTur == 1) {
-        if (Spillere[0].KontoBalance >= Pris) {
-
-          println("Denne " + FaergeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
-          println("Hvis " + FaergeNavn + " ikke ønskes at købes trykkes på 'N'");
-          if (key == 'y' || key == 'Y') {
-                        println("hej");
-            Spillere[0].KontoBalance -= Pris;
-            Ejer = 1;
-
-          } else if (key == 'n' || key == 'N') {
-
-          }
-        } else {
-          println("Du har ikke tilstrækkelig mængde penge til denne færge");
-        }
-      } else {
-        if (Spillere[1].KontoBalance >= Pris) {
-
-          println("Denne " + FaergeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
-          println("Hvis " + FaergeNavn + " ikke ønskes at købes trykkes på 'N'");
-          if (key == 'y' || key == 'Y') {
-            Spillere[1].KontoBalance -= Pris;
-            Ejer = 2;
-
-                        println("hej");
-          } else if (key == 'n' || key == 'N') {
-
-          }
-        } else {
-          println("Du har ikke tilstrækkelig mængde penge til denne færge");
-        }
-      }
-    } else if (Ejer == 1 ) {
+    println("Færge " + FaergeNavn);
+    println("Denne " + FaergeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+    println("Hvis " + FaergeNavn + " ikke ønskes at købes trykkes på 'N'");
+    if (Ejer == 1 ) {
       if (SpillersTur == 1) {
         println("Du ejer denne færge");
       } else {
@@ -271,6 +243,36 @@ public class Faerge extends Felt {
         Spillere[1].KontoBalance += Grundleje;
       } else {
         println("Du ejer denne færge");
+      }
+    }
+  }
+
+  void køb(Spiller spillere) {
+    if (Ejer == 0) {
+      if (SpillersTur == 1) {
+        if (Spillere[0].KontoBalance >= Pris) {
+
+
+          if (key == 'y' || key == 'Y') {
+            Spillere[0].KontoBalance -= Pris;
+            Ejer = 1;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne færge");
+        }
+      } else {
+        if (Spillere[1].KontoBalance >= Pris) {
+
+
+          if (key == 'y' || key == 'Y') {
+            Spillere[1].KontoBalance -= Pris;
+            Ejer = 2;
+          } else if (key == 'n' || key == 'N') {
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne færge");
+        }
       }
     }
   }
@@ -301,48 +303,14 @@ public class Gade extends Felt {
     return str.toString();
   }
   void landet(Spiller spillere) {
-    println(GadeNavn);
-    if (Ejer == 0) {
-      if (SpillersTur == 1) {
-        if (Spillere[0].KontoBalance >= Pris) {
-
-          println("Denne " + GadeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
-          println("Hvis " + GadeNavn + " ikke ønskes at købes trykkes på 'N'");
-          if (key == 121 || key == 'Y') {
-            Spillere[0].KontoBalance -= Pris;
-            Ejer = 1;
-                        println("hej");
-          } else if (key == 'n' || key == 'N') {
-
-          }else{
-            println("hej med dig den er igennem");
-
-          }
-        } else {
-          println("Du har ikke tilstrækkelig mængde penge til denne gade");
-        }
-      } else {
-        if (Spillere[1].KontoBalance >= Pris) {
-
-          println("Denne " + GadeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
-          println("Hvis " + GadeNavn + " ikke ønskes at købes trykkes på 'N'");
-          if (key == 121 || key == 'Y') {
-            Spillere[1].KontoBalance -= Pris;
-            Ejer = 2;
-                        println("hej");
-
-          } else if (key == 'n' || key == 'N') {
-
-          }
-        } else {
-          println("Du har ikke tilstrækkelig mængde penge til denne gade");
-        }
-      }
-    } else if (Ejer == 1 ) {
+    println("gade " + GadeNavn);
+    println("Denne " + GadeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+    println("Hvis " + GadeNavn + " ikke ønskes at købes trykkes på 'N'");
+    if (Ejer == 1 ) {
       if (SpillersTur == 1) {
         println("Du ejer denne gade");
       } else {
-      //  println(SpillerNavn[1] + "skal betale" + Grundleje);
+        //  println(SpillerNavn[1] + "skal betale" + Grundleje);
         Spillere[1].KontoBalance -= Grundleje;
         Spillere[0].KontoBalance += Grundleje;
       }
@@ -353,6 +321,39 @@ public class Gade extends Felt {
         Spillere[1].KontoBalance += Grundleje;
       } else {
         println("Du ejer denne gade");
+      }
+    }
+  }
+
+  void køb(Spiller spillere) {
+    if (Ejer == 0) {
+      if (SpillersTur == 1) {
+        if (Spillere[0].KontoBalance >= Pris) {
+
+
+          if (key == 121 || key == 'Y') {
+            Spillere[0].KontoBalance -= Pris;
+            Ejer = 1;
+            println("hej");
+          } else if (key == 'n' || key == 'N') {
+          } else {
+            println("hej med dig den er igennem");
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne gade");
+        }
+      } else {
+        if (Spillere[1].KontoBalance >= Pris) {
+          if (key == 'y' || key == 'Y') {
+            Spillere[1].KontoBalance -= Pris;
+            Ejer = 2;
+            println("hej");
+          } else if (key == 'n' || key == 'N') {
+            println();
+          }
+        } else {
+          println("Du har ikke tilstrækkelig mængde penge til denne gade");
+        }
       }
     }
   }
