@@ -21,9 +21,4 @@ public class Spiller {
     str.append(indryk+"FeltNr- " + FeltNr + "\n" + "\n");
     return str.toString();
   }
-  
-  
-  
-  
-  
 }

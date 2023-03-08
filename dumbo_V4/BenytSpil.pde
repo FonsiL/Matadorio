@@ -1,6 +1,6 @@
 public class benytspil {
 
-  int tur(int feltNr/*,double KontoBalance*/) {
+  int tur(int feltNr) {
     int Kast1 = int(random(1, 7));
     int Kast2 = int(random(1, 7));
     SlutKastVaerdi = Kast1 + Kast2;
@@ -8,14 +8,17 @@ public class benytspil {
     feltNr += SlutKastVaerdi;
     if (feltNr >39) {
       feltNr-=39;
-     // KontoBalance +=4000;
-      
+      if (SpillersTur == 1) {
+        Spillere[0].KontoBalance +=4000;
+      } else {
+        Spillere[1].KontoBalance +=4000;
+      }
     }
 
-    
+
     return feltNr;
   }
-      Board Matadorio = new Board();
+  Board Matadorio = new Board();
 
   public void main() {
     Matadorio.MataBoard();
@@ -45,13 +48,13 @@ public class benytspil {
       }
     }
   }
-  public void test(){
-      if (SpillersTur==1) {
-    Felt feltkøb = Matadorio.Felter.get(Spillere[0].FeltNr);
-    feltkøb.køb(Spillere[0]);
-  } else {
-    Felt feltkøb = Matadorio.Felter.get(Spillere[1].FeltNr);
-    feltkøb.køb(Spillere[1]);
-  }
+  public void test() {
+    if (SpillersTur==1) {
+      Felt feltkøb = Matadorio.Felter.get(Spillere[0].FeltNr);
+      feltkøb.køb(Spillere[0]);
+    } else {
+      Felt feltkøb = Matadorio.Felter.get(Spillere[1].FeltNr);
+      feltkøb.køb(Spillere[1]);
+    }
   }
 }
