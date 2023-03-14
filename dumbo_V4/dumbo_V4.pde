@@ -10,7 +10,7 @@ benytspil spil = new benytspil();
 
 public void setup() {
   Spillere[0] = new Spiller("Frederik ", 30000);
-  Spillere[1] = new Spiller("Kristian ", 30000);
+  Spillere[1] = new Spiller("Sebastian ", 30000);
 }
 
 public void draw() {
