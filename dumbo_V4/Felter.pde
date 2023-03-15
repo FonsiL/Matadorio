@@ -86,11 +86,7 @@ public class Lykken extends Felt {
       } else {
         Spillere[1].KontoBalance+= 1000;
       }
-<<<<<<< HEAD
       println("Tillykke du har vundet '1000kr' i lotto");
-=======
-      println("Tillykke du har vundet '2000 kr' i lotto");
->>>>>>> 02e00d67b86ebe16c4a0dca17e956cf83636ffa8
     }
   }
 }
