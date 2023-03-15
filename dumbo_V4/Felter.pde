@@ -72,21 +72,21 @@ public class Lykken extends Felt {
       } else {
         Spillere[1].KontoBalance+= 250;
       }
-      println("Tillykke du har vundet '500kr' i lotto");
+      println("Tillykke du har vundet '250kr' i lotto");
     } else if (Kort == 2) {
       if (SpillersTur == 1) {
         Spillere[0].KontoBalance+=500;
       } else {
         Spillere[1].KontoBalance+= 500;
       }
-      println("Tillykke du har vundet '1000kr' i lotto");
+      println("Tillykke du har vundet '500kr' i lotto");
     } else if (Kort == 3) {
       if (SpillersTur == 1) {
         Spillere[0].KontoBalance+= 1000;
       } else {
         Spillere[1].KontoBalance+= 1000;
       }
-      println("Tillykke du har vundet '2000kr' i lotto");
+      println("Tillykke du har vundet '1000kr' i lotto");
     }
   }
 }
