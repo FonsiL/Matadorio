@@ -14,7 +14,7 @@ public class Board {
     Felter.add(new Lykken(int(random(1, 4))));
     Felter.add(new Gade("Valby Langgade", 0, 2000, 100));
     Felter.add(new Gade("Allégade", 0, 2400, 150)); //10
-    Felter.add(new Helle("Faengsel"));
+    Felter.add(new Helle("Parkering"));
     Felter.add(new Gade("Frederiksberg Álle", 0, 2800, 200));
     Felter.add(new Sodavand("Squash", 0, 3000, 100*SlutKastVaerdi));
     Felter.add(new Gade("Bülowsvej", 0, 2800, 200));
@@ -34,7 +34,7 @@ public class Board {
     Felter.add(new Gade("Kgs. Nytorv", 0, 5200, 450));
     Felter.add(new Sodavand("CocaCola", 0, 3000, 100*SlutKastVaerdi));
     Felter.add(new Gade("Østergade", 0, 5600, 500)); //30
-    Felter.add(new Helle("jo")); // her skal vi lave et fængsel
+    Felter.add(new Helle("Parkering")); // her skal vi lave et fængsel
     Felter.add(new Gade("Amagertorv", 0, 6000, 550));
     Felter.add(new Gade("Vimmelskaffet", 0, 6000, 550));
     Felter.add(new Lykken(int(random(1, 4))));

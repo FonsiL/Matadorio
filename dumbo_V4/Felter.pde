@@ -146,9 +146,9 @@ public class Sodavand extends Felt {
   void landet(Spiller spillere) {
     println(SodavandNavn);
     if (Ejer ==0) {
-      println("Denne " + SodavandNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+      println( SodavandNavn + " kan købes til " + Pris + " ved tryk på 'Y'");
       println("Hvis " + SodavandNavn + " ikke ønskes at købes er det næste spillers tur");
-            println("Grundlejen er lig, det man slog for at lande på den, gange 10." );
+            println("Grundlejen er lig, det man slog for at lande på den, ganget med 100." );
 
     }
     if (Ejer == 1 ) {
@@ -228,7 +228,7 @@ public class Faerge extends Felt {
     println("Færge " + FaergeNavn);
     if (Ejer ==0) {
 
-      println("Denne " + FaergeNavn + " kan købes til " + Pris + "ved tryk på 'Y'");
+      println(FaergeNavn + " kan købes til " + Pris + " ved tryk på 'Y'");
       println("Hvis " + FaergeNavn + " ikke ønskes at købes er det næste spillers tur");
             println("Grundlejen er lig " + Grundleje);
 
@@ -311,7 +311,7 @@ public class Gade extends Felt {
     println("gade: " + GadeNavn);
     if (Ejer ==0) {
 
-      println("Denne " + GadeNavn + " kan købes til " + Pris + "ved tryk på 'y'");
+      println(GadeNavn + " kan købes til " + Pris + " ved tryk på 'y'");
       println("Hvis " + GadeNavn + " ikke ønskes at købes så er det næste spiller tur");
       println("Grundlejen er lig " + Grundleje);
     }

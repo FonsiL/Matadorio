@@ -9,8 +9,11 @@ Spiller[] Spillere =new Spiller[2];
 benytspil spil = new benytspil();
 
 public void setup() {
-  Spillere[0] = new Spiller("Frederik ", 30000);
-  Spillere[1] = new Spiller("Sebastian ", 30000);
+  Spillere[0] = new Spiller("Spiller 1 ", 30000);
+  Spillere[1] = new Spiller("Spiller 2 ", 30000);
+  println("For at spille spillet Matador: \nTryk på Spacebar for at slå terningen, der er to terninger der begge bliver sået på samme tid. \nDer er to spillere, spiller 1 og spiller 2.\nMan vinder når at den anden spiller har opgivet, eller når at de går bankerot, ved at deres konto rammer 0.\n");
+
+
 }
 
 public void draw() {
@@ -37,8 +40,6 @@ void keyPressed() {
       println(Spillere[1].SpillerNavn + Spillere[1].KontoBalance);
       println(Spillere[0].SpillerNavn + " feltnr " + Spillere[0].FeltNr);
       println(Spillere[1].SpillerNavn + " feltnr " + Spillere[1].FeltNr + '\n');
-
-
 
       slå =0;
     }
