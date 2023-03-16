@@ -1,7 +1,6 @@
 public class Board {
   ArrayList<Felt> Felter = new ArrayList<Felt>();
 
-
   public void MataBoard()
   {
     Felter.add(new Start(4000)); //1

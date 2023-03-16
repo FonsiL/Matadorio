@@ -14,10 +14,9 @@ public class benytspil {
         Spillere[1].KontoBalance +=4000;
       }
     }
-
-
     return feltNr;
   }
+  
   Board Matadorio = new Board();
 
   public void main() {
